@@ -18,9 +18,7 @@ namespace AskMe.Entities.Model
         public User()
         {
             this.Category = new HashSet<Category>();
-            this.Category1 = new HashSet<Category>();
             this.Question = new HashSet<Question>();
-            this.Question1 = new HashSet<Question>();
         }
     
         public int Id { get; set; }
@@ -32,10 +30,6 @@ namespace AskMe.Entities.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Category> Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Category> Category1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Question> Question { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question> Question1 { get; set; }
     }
 }

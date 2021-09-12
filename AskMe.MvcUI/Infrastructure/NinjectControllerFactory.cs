@@ -24,6 +24,9 @@ namespace AskMe.MvcUI.Infrastructure
         private void AddBllBinds()
         {
             this.kernel.Bind<ICategoryService>().To<CategoryManager>().WithConstructorArgument("categoryRepository", new EfCategoryRepository());
+            this.kernel.Bind<IUserService>().To<UserManager>().WithConstructorArgument("userRepository", new EfUserRepository());
+            this.kernel.Bind<IQuestionService>().To<QuestionManager>().WithConstructorArgument("questionRepository", new EfQuestionRepository());
+
         }
 
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)

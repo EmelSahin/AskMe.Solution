@@ -43,7 +43,7 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_Category_User">
+        <Association Name="FK_Category_User2">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Category" Type="Self.Category" Multiplicity="*" />
           <ReferentialConstraint>
@@ -52,18 +52,6 @@
             </Principal>
             <Dependent Role="Category">
               <PropertyRef Name="CreateUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Category_User1">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Category" Type="Self.Category" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Category">
-              <PropertyRef Name="EditUser" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -79,7 +67,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Question_User">
+        <Association Name="FK_Question_User2">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Question" Type="Self.Question" Multiplicity="*" />
           <ReferentialConstraint>
@@ -91,27 +79,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Question_User1">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Question" Type="Self.Question" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Question">
-              <PropertyRef Name="EditUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Category_User" Association="Self.FK_Category_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Category" EntitySet="Category" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Category_User1" Association="Self.FK_Category_User1">
+          <AssociationSet Name="FK_Category_User2" Association="Self.FK_Category_User2">
             <End Role="User" EntitySet="User" />
             <End Role="Category" EntitySet="Category" />
           </AssociationSet>
@@ -119,11 +91,7 @@
             <End Role="Category" EntitySet="Category" />
             <End Role="Question" EntitySet="Question" />
           </AssociationSet>
-          <AssociationSet Name="FK_Question_User" Association="Self.FK_Question_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Question" EntitySet="Question" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Question_User1" Association="Self.FK_Question_User1">
+          <AssociationSet Name="FK_Question_User2" Association="Self.FK_Question_User2">
             <End Role="User" EntitySet="User" />
             <End Role="Question" EntitySet="Question" />
           </AssociationSet>
@@ -144,8 +112,7 @@
           <Property Name="EditDate" Type="DateTime" Precision="3" />
           <Property Name="CreateUser" Type="Int32" />
           <Property Name="EditUser" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Category_User" FromRole="Category" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="Self.FK_Category_User1" FromRole="Category" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Category_User2" FromRole="Category" ToRole="User" />
           <NavigationProperty Name="Question" Relationship="Self.FK_Question_Category" FromRole="Category" ToRole="Question" />
         </EntityType>
         <EntityType Name="Question">
@@ -164,8 +131,7 @@
           <Property Name="AnswerUser" Type="Int32" />
           <Property Name="IsSuccess" Type="Boolean" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Question_Category" FromRole="Question" ToRole="Category" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Question_User" FromRole="Question" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="Self.FK_Question_User1" FromRole="Question" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Question_User2" FromRole="Question" ToRole="User" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -176,12 +142,10 @@
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_Category_User" FromRole="User" ToRole="Category" />
-          <NavigationProperty Name="Category1" Relationship="Self.FK_Category_User1" FromRole="User" ToRole="Category" />
-          <NavigationProperty Name="Question" Relationship="Self.FK_Question_User" FromRole="User" ToRole="Question" />
-          <NavigationProperty Name="Question1" Relationship="Self.FK_Question_User1" FromRole="User" ToRole="Question" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Category_User2" FromRole="User" ToRole="Category" />
+          <NavigationProperty Name="Question" Relationship="Self.FK_Question_User2" FromRole="User" ToRole="Question" />
         </EntityType>
-        <Association Name="FK_Category_User">
+        <Association Name="FK_Category_User2">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Category" Type="Self.Category" Multiplicity="*" />
           <ReferentialConstraint>
@@ -190,18 +154,6 @@
             </Principal>
             <Dependent Role="Category">
               <PropertyRef Name="CreateUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Category_User1">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Category" Type="Self.Category" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Category">
-              <PropertyRef Name="EditUser" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -217,7 +169,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Question_User">
+        <Association Name="FK_Question_User2">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Question" Type="Self.Question" Multiplicity="*" />
           <ReferentialConstraint>
@@ -229,27 +181,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Question_User1">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Question" Type="Self.Question" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Question">
-              <PropertyRef Name="EditUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Question" EntityType="Self.Question" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Category_User" Association="Self.FK_Category_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Category" EntitySet="Category" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Category_User1" Association="Self.FK_Category_User1">
+          <AssociationSet Name="FK_Category_User2" Association="Self.FK_Category_User2">
             <End Role="User" EntitySet="User" />
             <End Role="Category" EntitySet="Category" />
           </AssociationSet>
@@ -257,11 +193,7 @@
             <End Role="Category" EntitySet="Category" />
             <End Role="Question" EntitySet="Question" />
           </AssociationSet>
-          <AssociationSet Name="FK_Question_User" Association="Self.FK_Question_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Question" EntitySet="Question" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Question_User1" Association="Self.FK_Question_User1">
+          <AssociationSet Name="FK_Question_User2" Association="Self.FK_Question_User2">
             <End Role="User" EntitySet="User" />
             <End Role="Question" EntitySet="Question" />
           </AssociationSet>
