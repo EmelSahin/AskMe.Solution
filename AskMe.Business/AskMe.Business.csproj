@@ -41,7 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryManager.cs" />
+    <Compile Include="GenericManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionManager.cs" />
+    <Compile Include="UserManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AskMe.DataAccessLayer\AskMe.DataAccessLayer.csproj">
+      <Project>{97CCB89C-9A48-4D39-9EA6-090C3A76C60C}</Project>
+      <Name>AskMe.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AskMe.Entities\AskMe.Entities.csproj">
+      <Project>{3DF8315E-AF06-49D3-91F1-D0791B2ED448}</Project>
+      <Name>AskMe.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AskMe.Interfaces\AskMe.Interfaces.csproj">
+      <Project>{66FD7BEB-1BF0-4E0E-BB64-3CCF707B30A1}</Project>
+      <Name>AskMe.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
