@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using AskMe.MvcUI.Infrastructure;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace AskMe.MvcUI
@@ -9,6 +10,8 @@ namespace AskMe.MvcUI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
         }
     }
 }

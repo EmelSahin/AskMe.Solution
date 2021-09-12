@@ -51,6 +51,9 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -105,6 +108,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +127,20 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AskMe.Business\AskMe.Business.csproj">
+      <Project>{4E85DABE-7E3F-4FF3-BE01-4A5B6ECA76D7}</Project>
+      <Name>AskMe.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AskMe.DataAccessLayer\AskMe.DataAccessLayer.csproj">
+      <Project>{97CCB89C-9A48-4D39-9EA6-090C3A76C60C}</Project>
+      <Name>AskMe.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AskMe.Interfaces\AskMe.Interfaces.csproj">
+      <Project>{66FD7BEB-1BF0-4E0E-BB64-3CCF707B30A1}</Project>
+      <Name>AskMe.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
